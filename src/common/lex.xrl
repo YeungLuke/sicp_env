@@ -11,7 +11,7 @@ Rules.
 [+-]?{D}+ : {token, {num_val, TokenLine, list_to_integer(TokenChars)}}.
 [+-]?{D}+\.{D}+((E|e)(\+|-)?{D}+)? : {token, {num_val, TokenLine, list_to_float(TokenChars)}}.
 [()]|{SPECIAL} : {token, {list_to_atom(TokenChars), TokenLine}}.
-".+" : {token, {str_val, TokenLine, strip(TokenChars, TokenLen)}}. 
+"[^\"]*" : {token, {str_val, TokenLine, strip(TokenChars, TokenLen)}}. 
 true|false : {token, {bool_val, TokenLine, list_to_atom(TokenChars)}}.
 {V}+ : {token, {var_exp, TokenLine, list_to_atom(TokenChars)}}.
 [\s\t\n\r]+ : skip_token.
